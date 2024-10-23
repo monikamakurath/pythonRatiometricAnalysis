@@ -1,78 +1,59 @@
 # Monika A. Makurath
-# Apply mean threshold, remove small speckles, mask the channels, and save side-by-side image
+# Apply mean threshold, remove small speckles, and save mask for each frame
 # libraries
 import numpy as np
 import matplotlib.pyplot as plt
 import tifffile as tiff
 from skimage.morphology import remove_small_objects
-from matplotlib.colors import LinearSegmentedColormap
 
-#%% Load the previously saved summed image and registered channels
-summed_image_path = '/Users/monikamakurath/Documents/pythonTestFiles/summed_image.tiff'
-stack_path = '/Users/monikamakurath/Documents/pythonTestFiles/registered_first_frame_16bit.tiff'  # Registered image stack path
+# %% Load the previously saved summed stack
+# PC
+summed_stack_path = '/Users/makurathm/Documents/pythonTestFiles/summed_stack_16bit.tiff'  # Path to the summed stack
+# laptop
+# summed_stack_path = '/Users/monikamakurath/Documents/pythonTestFiles/summed_stack_16bit.tiff'
 
-summed_image = tiff.imread(summed_image_path)
-multi_channel_image = tiff.imread(stack_path)
+# Load the multi-frame summed stack
+summed_stack = tiff.imread(summed_stack_path)
 
-# Extract the green and red channels
-green_channel = multi_channel_image[1, :, :].astype(np.uint16)  # Green channel
-red_channel = multi_channel_image[0, :, :].astype(np.uint16)  # Red channel
+# Get the number of frames (T) from the shape of the stack
+num_frames = summed_stack.shape[0]  # Shape is (T, Y, X)
 
-#%% Step 1: Apply Mean Threshold to create a binary mask
-mean_threshold_value = np.mean(summed_image)  # Calculate mean intensity
-binary_mask = summed_image > mean_threshold_value  # Create binary mask
+# Initialize a list to store the cleaned masks for each frame
+cleaned_masks_stack = []
 
-#%% Step 2: Remove small speckles and background particles
-min_size = 500  # Adjust based on the size of your cells
-cleaned_mask = remove_small_objects(binary_mask, min_size=min_size)
+# Loop through each frame to create a mask
+for frame in range(num_frames):
+    # Extract the summed image for the current frame
+    summed_image = summed_stack[frame, :, :].astype(np.uint16)
 
-#%% Save the cleaned mask as a TIFF file
-output_file_mask = '/Users/monikamakurath/Documents/pythonTestFiles/cleaned_mask.tiff'
-tiff.imwrite(output_file_mask, cleaned_mask.astype(np.uint16), photometric='minisblack')
-print(f"Cleaned mask saved at {output_file_mask}")
+    # Step 1: Apply Mean Threshold to create a binary mask
+    mean_threshold_value = np.mean(summed_image)  # Calculate mean intensity
+    binary_mask = summed_image > mean_threshold_value  # Create binary mask
 
-#%% Step 3: Apply the mask to each channel
-masked_green = green_channel * cleaned_mask
-masked_red = red_channel * cleaned_mask
+    # Step 2: Remove small speckles and background particles
+    min_size = 500  # Adjust based on the size of your cells
+    cleaned_mask = remove_small_objects(binary_mask, min_size=min_size)
 
-#%% Step 4: Display the cleaned mask, masked green, and red channels
-# Create custom colormaps for green and red on black background
-green_cmap = LinearSegmentedColormap.from_list('green_cmap', ['black', 'green'], N=256)
-red_cmap = LinearSegmentedColormap.from_list('red_cmap', ['black', 'red'], N=256)
+    # Add the cleaned mask to the list
+    cleaned_masks_stack.append(cleaned_mask)
 
-plt.figure(figsize=(18, 6))
+# Convert the list of cleaned masks to a NumPy array (T, Y, X)
+cleaned_masks_stack = np.array(cleaned_masks_stack).astype(np.uint16)
 
-# Display the Mask
-plt.subplot(1, 3, 1)
-plt.imshow(cleaned_mask, cmap='gray')
-plt.title('Cleaned Mask')
+# %% Save the cleaned masks as a multi-frame TIFF file
+# PC
+output_file_masks_stack = '/Users/makurathm/Documents/pythonTestFiles/cleaned_masks_stack.tiff'
+# laptop
+# output_file_masks_stack = '/Users/monikamakurath/Documents/pythonTestFiles/cleaned_masks_stack.tiff'
+
+# Save the cleaned mask stack as a multi-frame TIFF (T, Y, X)
+tiff.imwrite(output_file_masks_stack, cleaned_masks_stack, photometric='minisblack')
+
+print(f"Cleaned masks stack (16-bit) saved at {output_file_masks_stack}")
+
+# %% Display the cleaned mask for the first frame as an example
+plt.figure(figsize=(6, 6))
+plt.imshow(cleaned_masks_stack[0, :, :], cmap='gray')
+plt.title('Cleaned Mask (Frame 1)')
 plt.axis('off')
-
-# Display the Masked Green Channel
-plt.subplot(1, 3, 2)
-plt.imshow(masked_green, cmap=green_cmap)
-plt.title('Masked Green Channel')
-plt.axis('off')
-
-# Display the Masked Red Channel
-plt.subplot(1, 3, 3)
-plt.imshow(masked_red, cmap=red_cmap)
-plt.title('Masked Red Channel')
-plt.axis('off')
-
 plt.show()
-
-#%% Step 5: Save the masked green and red channels side by side as a single image
-# Create an empty array to hold both channels side by side
-height, width = masked_green.shape
-side_by_side_image = np.zeros((height, 2 * width), dtype=np.uint16)
-
-# Place green channel on the left and red channel on the right
-side_by_side_image[:, :width] = masked_green  # Green on the left
-side_by_side_image[:, width:] = masked_red    # Red on the right
-
-# Save the side-by-side image as a TIFF
-output_file_side_by_side = '/Users/monikamakurath/Documents/pythonTestFiles/masked_green_red_side_by_side.tiff'
-tiff.imwrite(output_file_side_by_side, side_by_side_image)
-
-print(f"Masked green and red channels saved side by side at {output_file_side_by_side}")

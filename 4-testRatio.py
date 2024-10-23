@@ -1,10 +1,10 @@
 # Monika A. Makurath
-# Normalize pixel intensities, perform ratiometric analysis, display results, and plot ratiometric intensity over time
+# Perform ratiometric analysis without normalization, display results, and plot ratiometric intensity over time
 # libraries
 import numpy as np
 import matplotlib.pyplot as plt
 import tifffile as tiff
-from skimage.morphology import remove_small_objects
+from matplotlib import cm  # For applying colormap to save RGB image
 
 #%% Load the registered channels and the mask
 # PC
@@ -21,32 +21,15 @@ cleaned_mask = tiff.imread(mask_path)
 green_channel = multi_channel_image[1, :, :].astype(np.uint16)  # Green channel
 red_channel = multi_channel_image[0, :, :].astype(np.uint16)  # Red channel
 
-#%% Apply the mask to each channel
+#%% Apply the mask to each channel (skip normalization)
 masked_green = green_channel * cleaned_mask
 masked_red = red_channel * cleaned_mask
 
-#%% Function to normalize pixel intensities so that the total intensity in each masked region is 1
-def normalize_image_to_total_intensity(image):
-    total_intensity = np.sum(image[image > 0])  # Sum of intensities within the masked region (non-zero pixels)
-    normalized_image = image / (total_intensity + 1e-10)  # Normalize so the total sum equals 1
-    return normalized_image
+#%% Step 1: Compute Ratiometric Intensity (Green / Red) without normalization
+epsilon = 1e-10  # Small value to avoid division by zero
+ratiometric_intensity_total = np.sum(masked_green) / (np.sum(masked_red) + epsilon)
 
-#%% Step 1: Normalize the masked green and red channels based on total intensity
-normalized_green = normalize_image_to_total_intensity(masked_green)
-normalized_red = normalize_image_to_total_intensity(masked_red)
-
-# Check the total intensity after normalization
-total_intensity_green_after = np.sum(normalized_green)
-total_intensity_red_after = np.sum(normalized_red)
-print(f"Total Green Intensity after Normalization: {total_intensity_green_after}")
-print(f"Total Red Intensity after Normalization: {total_intensity_red_after}")
-
-#%% Step 2: Compute Ratiometric Intensity (Green / Red) for each frame
-# Here we'll calculate the ratiometric intensity as the total intensity in the green channel
-# divided by the total intensity in the red channel within the masked region
-ratiometric_intensity_total = np.sum(normalized_green) / np.sum(normalized_red)
-
-#%% Step 3: Plot Ratiometric Intensity vs. Time (using frame numbers as time)
+#%% Step 2: Plot Ratiometric Intensity vs. Time (using frame numbers as time)
 frame_rate = 1  # Example: 1 frame per second
 num_frames = 1  # For now, we assume 1 frame; adjust this for multiple frames
 
@@ -62,20 +45,16 @@ plt.ylabel('Ratiometric Intensity (Green / Red)')
 plt.grid(True)
 
 # Save the plot as a TIFF file
-# PC
 output_plot_path = '/Users/makurathm/Documents/pythonTestFiles/ratiometric_intensity_vs_time.tiff'
-# laptop
-#output_plot_path = '/Users/monikamakurath/Documents/pythonTestFiles/ratiometric_intensity_vs_time.tiff'
 plt.savefig(output_plot_path, dpi=300)
 plt.show()
 
 print(f"Ratiometric intensity plot saved at {output_plot_path}")
 
-#%% Step 4: Perform Ratiometric Analysis for visualization
-epsilon = 1e-10
-ratiometric_image = normalized_green / (normalized_red + epsilon)
+#%% Step 3: Perform pixel-wise Ratiometric Analysis for visualization
+ratiometric_image = masked_green / (masked_red + epsilon)
 
-#%% Step 5: Check distribution of ratiometric values before display
+#%% Step 4: Check distribution of ratiometric values before display
 plt.figure(figsize=(8, 6))
 plt.hist(ratiometric_image[ratiometric_image > 0].ravel(), bins=256, color='gray', alpha=0.75)
 plt.title('Ratiometric Image Value Distribution')
@@ -83,10 +62,10 @@ plt.xlabel('Ratiometric Value')
 plt.ylabel('Frequency')
 plt.show()
 
-#%% Step 6: Clip extreme values to improve contrast for visualization (optional)
+#%% Step 5: Clip extreme values to improve contrast for visualization (optional)
 ratiometric_image_clipped = np.clip(ratiometric_image, 0, 5)  # Clipping to improve visualization (adjust as needed)
 
-#%% Step 7: Display the ratiometric image using an appropriate colormap (small values blue, large values red)
+#%% Step 6: Display the ratiometric image using an appropriate colormap (small values blue, large values red)
 plt.figure(figsize=(8, 6))
 ratiometric_img_display = plt.imshow(ratiometric_image_clipped, cmap='jet')
 plt.colorbar(ratiometric_img_display, label='Ratiometric Value (Green / Red)')
@@ -94,13 +73,33 @@ plt.title('Ratiometric Image (Green / Red)')
 plt.axis('off')
 plt.show()
 
-#%% Step 8: Save the ratiometric image as a TIFF file
-# PC
+#%% Step 7: Save the ratiometric image as a TIFF file
 output_file_ratiometric = '/Users/makurathm/Documents/pythonTestFiles/ratiometric_image.tiff'
-# laptop
-#output_file_ratiometric = '/Users/monikamakurath/Documents/pythonTestFiles/ratiometric_image.tiff'
-
-# Save the ratiometric image
 tiff.imwrite(output_file_ratiometric, (ratiometric_image_clipped * 65535).astype(np.uint16))  # Scale back to 16-bit range
-
 print(f"Ratiometric image saved at {output_file_ratiometric}")
+
+#%% Step 8: Save the ratiometric image as an RGB file (colormap applied)
+# Normalize ratiometric image to [0, 1] range
+ratiometric_image_normalized = (ratiometric_image_clipped - np.min(ratiometric_image_clipped)) / (
+        np.max(ratiometric_image_clipped) - np.min(ratiometric_image_clipped) + epsilon)
+
+# Apply the 'jet' colormap to create the RGB image
+ratiometric_image_rgb = cm.jet(ratiometric_image_normalized)
+
+# Remove the alpha channel (4th channel) from the RGB image
+ratiometric_image_rgb = (ratiometric_image_rgb[:, :, :3] * 255).astype(np.uint8)  # Convert to 8-bit RGB image
+
+# Save the RGB image as a high-resolution PNG with DPI setting
+output_file_ratiometric_rgb = '/Users/makurathm/Documents/pythonTestFiles/ratiometric_image_rgb_highres.png'
+
+# Create a figure with the desired DPI and save
+fig, ax = plt.subplots(figsize=(ratiometric_image_rgb.shape[1] / 100, ratiometric_image_rgb.shape[0] / 100), dpi=300)
+ax.imshow(ratiometric_image_rgb)
+ax.axis('off')  # Remove axis for cleaner image
+
+# Save the high-resolution PNG
+fig.savefig(output_file_ratiometric_rgb, dpi=300, bbox_inches='tight', pad_inches=0)
+plt.close(fig)
+
+print(f"Ratiometric image saved as high-resolution RGB PNG at {output_file_ratiometric_rgb}")
+

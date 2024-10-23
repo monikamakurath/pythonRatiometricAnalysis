@@ -11,12 +11,18 @@ import numpy as np
 import tifffile as tiff
 
 #%% load .czi file
-file_path = '/Users/monikamakurath/Documents/pythonTestFiles/test.czi'  # Update this path
+# PC
+file_path = '/Users/makurathm/Documents/pythonTestFiles/test.czi'  # Update this path
+# laptop
+# file_path = '/Users/monikamakurath/Documents/pythonTestFiles/test.czi'  # Update this path
 czi = czifile.CziFile(file_path)
 image = czifile.imread(file_path)
 
 #%% initialize path to save
-output_file_preregistration = '/Users/monikamakurath/Documents/pythonTestFiles/preregistration_image.tiff'  # Update with your desired path
+# PC
+output_file_preregistration = '/Users/makurathm/Documents/pythonTestFiles/preregistration_image.tiff'  # Update with your desired path
+# laptop
+#output_file_preregistration = '/Users/monikamakurath/Documents/pythonTestFiles/preregistration_image.tiff'  # Update with your desired path
 
 #%% show first frames
 # Extract the first frame (T=0) for two channels
