@@ -4,17 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8ee63934-e151-4ded-a6d6-04f742e880ba" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/other.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/pythonRatiometricAnalysis.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/pythonRatiometricAnalysis.iml" afterDir="false" />
+    <list default="true" id="8ee63934-e151-4ded-a6d6-04f742e880ba" name="Changes" comment="adapted 0-3 to loop through the entire stack. got stuck on step 4 because of all kinds of mistakes">
+      <change afterPath="$PROJECT_DIR$/3-segmentation.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/4-ratioTotalIntensityPlots.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/0-loadFile.py" beforeDir="false" afterPath="$PROJECT_DIR$/0-loadFile.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/1-registration.py" beforeDir="false" afterPath="$PROJECT_DIR$/1-registration.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2-sumChannels.py" beforeDir="false" afterPath="$PROJECT_DIR$/2-sumChannels.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/3-getMask.py" beforeDir="false" afterPath="$PROJECT_DIR$/3-getMask.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/4-ratiometricAnalysisNormTotIntensity.py" beforeDir="false" afterPath="$PROJECT_DIR$/4-ratiometricAnalysisNormTotIntensity.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/3-getMask.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/4-testRatio.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,6 +55,9 @@
     "Python.1-registration.executor": "Run",
     "Python.2-sumChannels.executor": "Run",
     "Python.3-getMask.executor": "Run",
+    "Python.3-segmentation.executor": "Run",
+    "Python.4-ratioTotalIntensity.executor": "Run",
+    "Python.4-ratioTotalIntensityImages.executor": "Run",
     "Python.4-ratiometricAnalysisNormTotIntensity.executor": "Run",
     "Python.4-testRatio.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -69,7 +68,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "terminal",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -108,19 +107,46 @@
       <updated>1729707267984</updated>
       <workItem from="1729707269112" duration="2000" />
       <workItem from="1729709487639" duration="602000" />
-      <workItem from="1729710104325" duration="8924000" />
+      <workItem from="1729710104325" duration="30289000" />
     </task>
+    <task id="LOCAL-00001" summary="adapted 0-3 to loop through the entire stack. got stuck on step 4 because of all kinds of mistakes">
+      <option name="closed" value="true" />
+      <created>1729720122190</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1729720122190</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="adapted 0-3 to loop through the entire stack. got stuck on step 4 because of all kinds of mistakes" />
+    <option name="LAST_COMMIT_MESSAGE" value="adapted 0-3 to loop through the entire stack. got stuck on step 4 because of all kinds of mistakes" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/4-ratioTotalIntensityImages.py</url>
+          <line>31</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/pythonRatiometricAnalysis$2_sumChannels.coverage" NAME="2-sumChannels Coverage Results" MODIFIED="1729714044099" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/pythonRatiometricAnalysis$1_registration.coverage" NAME="1-registration Coverage Results" MODIFIED="1729712026032" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/pythonRatiometricAnalysis$0_loadFile.coverage" NAME="0-loadFile Coverage Results" MODIFIED="1729710455986" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/pythonRatiometricAnalysis$2_sumChannels.coverage" NAME="2-sumChannels Coverage Results" MODIFIED="1729774954030" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/pythonRatiometricAnalysis$1_registration.coverage" NAME="1-registration Coverage Results" MODIFIED="1729774752195" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/pythonRatiometricAnalysis$0_loadFile.coverage" NAME="0-loadFile Coverage Results" MODIFIED="1729774713015" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/pythonRatiometricAnalysis$3_getMask.coverage" NAME="3-getMask Coverage Results" MODIFIED="1729714912675" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/pythonRatiometricAnalysis$4_ratiometricAnalysisNormTotIntensity.coverage" NAME="4-ratiometricAnalysisNormTotIntensity Coverage Results" MODIFIED="1729718165272" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/pythonRatiometricAnalysis$4_testRatio.coverage" NAME="4-testRatio Coverage Results" MODIFIED="1729719090589" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/pythonRatiometricAnalysis$4_ratioTotalIntensityImages.coverage" NAME="4-ratioTotalIntensityImages Coverage Results" MODIFIED="1729868310558" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/pythonRatiometricAnalysis$4_testRatio.coverage" NAME="4-testRatio Coverage Results" MODIFIED="1729781874502" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/pythonRatiometricAnalysis$4_ratioTotalIntensity.coverage" NAME="4-ratioTotalIntensity Coverage Results" MODIFIED="1729791819217" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/pythonRatiometricAnalysis$4_ratiometricAnalysisNormTotIntensity.coverage" NAME="4-ratiometricAnalysisNormTotIntensity Coverage Results" MODIFIED="1729792276394" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/pythonRatiometricAnalysis$3_segmentation.coverage" NAME="3-segmentation Coverage Results" MODIFIED="1729775351332" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
