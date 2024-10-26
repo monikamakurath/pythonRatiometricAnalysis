@@ -8,9 +8,24 @@ import numpy as np
 import tifffile as tiff
 from skimage.registration import phase_cross_correlation
 from scipy.ndimage import shift
+import os
+import getpass
+
+#%% set the file path
+username = os.environ.get("USER") or getpass.getuser()
+
+if username == "makurathm":  # Office computer
+    file_path = '/Users/makurathm/Documents/pythonTestFiles/test.czi'
+elif username == "monikamakurath":  # Laptop
+    file_path = '/Users/monikamakurath/Documents/pythonTestFiles/test.czi'
+else:
+    raise ValueError("Unknown computer. Please specify the file path.")
+
+#%% initialize path to save
+path_no_file_name = os.path.dirname(file_path)
+output_file_registered_stack = os.path.join(path_no_file_name, 'registered_stack_16bit.tiff')  # Update with your desired path
 
 # %% Load .czi file
-file_path = '/Users/makurathm/Documents/pythonTestFiles/test.czi'  # Update this path
 czi = czifile.CziFile(file_path)
 image = czifile.imread(file_path)
 
@@ -56,7 +71,6 @@ registered_stack = np.array(registered_stack)
 
 # %% Step 3: Save the registered stack as a multi-frame TIFF for Fiji
 # Save the registered stack as a multi-frame TIFF (T, C, Y, X) with green as first channel
-output_file_registered_stack = '/Users/makurathm/Documents/pythonTestFiles/registered_stack_16bit.tiff'
 tiff.imwrite(output_file_registered_stack, registered_stack.astype(np.uint16), photometric='minisblack',
              planarconfig='separate', metadata={'axes': 'TCYX'})
 

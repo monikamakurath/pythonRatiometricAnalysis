@@ -5,14 +5,27 @@ import numpy as np
 import matplotlib.pyplot as plt
 import tifffile as tiff
 from skimage.morphology import remove_small_objects
+import os
+import getpass
 
 # %% Load the previously saved summed stack
-# PC
-summed_stack_path = '/Users/makurathm/Documents/pythonTestFiles/summed_stack_16bit.tiff'  # Path to the summed stack
-# laptop
-# summed_stack_path = '/Users/monikamakurath/Documents/pythonTestFiles/summed_stack_16bit.tiff'
+username = os.environ.get("USER") or getpass.getuser()
 
-# Load the multi-frame summed stack
+if username == "makurathm":  # Office computer
+    file_path = '/Users/makurathm/Documents/pythonTestFiles/test.czi'
+elif username == "monikamakurath":  # Laptop
+    file_path = '/Users/monikamakurath/Documents/pythonTestFiles/test.czi'
+else:
+    raise ValueError("Unknown computer. Please specify the file path.")
+
+path_no_file_name = os.path.dirname(file_path)
+summed_stack_path = os.path.join(path_no_file_name, 'summed_stack_16bit.tiff')
+output_file_masks_stack = os.path.join(path_no_file_name, 'cleaned_masks_stack.tiff')
+
+
+
+
+# %% Load the multi-frame summed stack
 summed_stack = tiff.imread(summed_stack_path)
 
 # Get the number of frames (T) from the shape of the stack
@@ -41,11 +54,6 @@ for frame in range(num_frames):
 cleaned_masks_stack = np.array(cleaned_masks_stack).astype(np.uint16)
 
 # %% Save the cleaned masks as a multi-frame TIFF file
-# PC
-output_file_masks_stack = '/Users/makurathm/Documents/pythonTestFiles/cleaned_masks_stack.tiff'
-# laptop
-# output_file_masks_stack = '/Users/monikamakurath/Documents/pythonTestFiles/cleaned_masks_stack.tiff'
-
 # Save the cleaned mask stack as a multi-frame TIFF (T, Y, X)
 tiff.imwrite(output_file_masks_stack, cleaned_masks_stack, photometric='minisblack')
 

@@ -9,20 +9,26 @@ import matplotlib.pyplot as plt
 from matplotlib.colors import LinearSegmentedColormap
 import numpy as np
 import tifffile as tiff
+import os
+import getpass
 
 #%% load .czi file
-# PC
-file_path = '/Users/makurathm/Documents/pythonTestFiles/test.czi'  # Update this path
-# laptop
-# file_path = '/Users/monikamakurath/Documents/pythonTestFiles/test.czi'  # Update this path
+username = os.environ.get("USER") or getpass.getuser()
+
+if username == "makurathm":  # Office computer
+    file_path = '/Users/makurathm/Documents/pythonTestFiles/test.czi'
+elif username == "monikamakurath":  # Laptop
+    file_path = '/Users/monikamakurath/Documents/pythonTestFiles/test.czi'
+else:
+    raise ValueError("Unknown computer. Please specify the file path.")
+
+
 czi = czifile.CziFile(file_path)
 image = czifile.imread(file_path)
 
 #%% initialize path to save
-# PC
-output_file_preregistration = '/Users/makurathm/Documents/pythonTestFiles/preregistration_image.tiff'  # Update with your desired path
-# laptop
-#output_file_preregistration = '/Users/monikamakurath/Documents/pythonTestFiles/preregistration_image.tiff'  # Update with your desired path
+path_no_file = os.path.dirname(file_path)
+output_file_preregistration = os.path.join(path_no_file, 'preregistration_image.tiff')  # Update with your desired path
 
 #%% show first frames
 # Extract the first frame (T=0) for two channels
