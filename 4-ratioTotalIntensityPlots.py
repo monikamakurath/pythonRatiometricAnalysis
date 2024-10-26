@@ -30,6 +30,7 @@ mask_path = os.path.join(path_no_file_name, 'cleaned_masks_stack.tiff')
 # output save paths
 output_file_plot_raw_int_svg = os.path.join(path_no_file_name, 'total_pixel_intensity_plot.svg')
 output_file_plot_ratio_int_svg = os.path.join(path_no_file_name, 'ratio_intensity_plot.svg')
+output_file_plot_ratio_int_combined_svg = os.path.join(path_no_file_name, 'ratio_intensity_combined_plot.svg')
 output_excel_path = os.path.join(path_no_file_name, 'total_intensity_data.xlsx')
 
 # %% MANUALLY SET FRAME RATE!
@@ -60,7 +61,7 @@ ratio_tot_intensity_baseline_correction = ratio_tot_intensity - ratio_tot_intens
 num_frames = masked_channel_1_stack.shape[0]
 frames = np.arange(num_frames) * frame_rate /60 # Adjust the frames array based on the frame rate (input in seconds but convert to minutes)
 
-#%% save the data
+#%% save the two plots seperately
 # Set figure size and aspect ratio for square plots
 plt.figure(figsize=(10, 6))  # Adjust the size for square format
 plt.plot(frames, green_channel_intensities, label='Green Channel (Total Intensity)', color='green', linewidth=2)
@@ -85,6 +86,52 @@ plt.tight_layout()
 plt.savefig(output_file_plot_ratio_int_svg, format='svg', dpi=300)
 
 
+# %% create a subplot
+fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(8, 16))  # Adjust height for square aspect ratio # Create a figure with two square subplots, stacked vertically
+
+# First subplot for total intensity of green and red channels
+ax1.plot(frames, green_channel_intensities, label='Green Channel (Total Intensity)', color='green', linewidth=2)
+ax1.plot(frames, red_channel_intensities, label='Red Channel (Total Intensity)', color='red', linewidth=2)
+ax1.set_xlabel('Time (min)', fontsize=14)
+ax1.set_ylabel('Total Pixel Intensity', fontsize=14)
+ax1.set_title('Total Pixel Intensity for Each Frame (Green and Red Channels)', fontsize=16)
+ax1.legend(frameon=False, fontsize=12)
+
+# Second subplot for intensity ratio
+ax2.plot(frames, ratio_tot_intensity_baseline_correction, label='Green/Red (Total Intensity)', color='black', linewidth=2)
+ax2.set_xlabel('Time (min)', fontsize=14)
+ax2.set_ylabel('Intensity Ratio (Green/Red)', fontsize=14)
+ax2.set_title('Green Total Intensity/Red Total Intensity', fontsize=16)
+ax2.legend(frameon=False, fontsize=12)
+
+# Adjust layout to ensure subplots are neat and save the figure
+plt.tight_layout()
+plt.savefig(output_file_plot_ratio_int_combined_svg, format='svg', dpi=300)
+
+# %% format the ratio plot
+# Second figure for intensity ratio
+plt.figure(figsize=(10, 10))  # Square format
+plt.plot(frames, ratio_tot_intensity_baseline_correction, label='DNJ', color='midnightblue', linewidth=4)
+plt.xlabel('Time (min)', fontsize=24)
+plt.ylabel('Intensity Ratio (Green/Red)', fontsize=24)
+#plt.title('Green Total Intensity/Red Total Intensity', fontsize=16)
+plt.legend(frameon=False, fontsize=18)
+#plt.ylim(0, 2)  # Set y-axis limits for the first subplot
+
+# remove grid
+plt.grid(True)
+
+# Remove top and right spines (frame lines)
+ax = plt.gca()  # Get current axes
+ax.spines['top'].set_visible(True)     # change to False
+ax.spines['right'].set_visible(True)     # change to False
+
+# Adjust layout and save the plot
+plt.tight_layout()
+plt.savefig(output_file_plot_ratio_int_svg, format='svg', dpi=300)
+
+
+# %% save to an excel spreadsheet
 # Save data to an Excel spreadsheet
 data = {
     'Time (s)': frames * 60,  # convert back to seconds
@@ -97,3 +144,5 @@ df = pd.DataFrame(data)
 df.to_excel(output_excel_path, index=False)
 
 print(f"Plots saved and data written to {output_excel_path}")
+
+

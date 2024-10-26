@@ -11,6 +11,8 @@ import math
 from PIL import Image
 import matplotlib.cm as cm
 
+plt.rcParams['font.family'] = 'Arial'   # set the font for all images 
+
 # %% Load the registered channels and the mask
 username = os.environ.get("USER") or getpass.getuser()
 
@@ -149,6 +151,7 @@ plt.gca().add_patch(scale_bar)
 plt.show()
 # %% Display and save the last frame with color bar
 output_file_last_frame = os.path.join(path_no_file_name, 'last_frame_high_res.tiff')    # Define the path to save the high-resolution TIFF file
+output_file_last_frame_svg = os.path.join(path_no_file_name, 'last_frame_high_res_svg.svg')    # Define the path to save the high-resolution TIFF file
 
 # Set high DPI and larger figure size for higher resolution
 high_dpi = 300  # Increase for higher resolution
@@ -175,7 +178,10 @@ plt.gca().add_patch(scale_bar)
 
 # Save the figure as a high-resolution TIFF without additional padding
 plt.savefig(output_file_last_frame, format='tiff', dpi=high_dpi, bbox_inches='tight', pad_inches=0)
+plt.savefig(output_file_last_frame_svg, format='tiff', dpi=high_dpi, bbox_inches='tight', pad_inches=0)
 plt.close()  # Close to free up memory
+
+
 
 print(f"Last frame saved as high-resolution TIFF at {output_file_last_frame}")
 
@@ -224,7 +230,7 @@ fig, ax = plt.subplots(figsize=(6, 1), dpi=high_dpi)
 cbar = plt.colorbar(plt.cm.ScalarMappable(cmap='turbo'), cax=ax, orientation='horizontal')
 cbar.set_label('Intensity')
 plt.subplots_adjust(left=0, right=1, top=1, bottom=0)
-color_bar_horizontal_path = os.path.join(path_no_file_name, 'color_bar_horizontal.cvg')
+color_bar_horizontal_path = os.path.join(path_no_file_name, 'color_bar_horizontal.svg')
 plt.savefig(color_bar_horizontal_path, dpi=high_dpi, bbox_inches='tight', pad_inches=0)
 plt.close(fig)
 
@@ -233,7 +239,7 @@ fig, ax = plt.subplots(figsize=(1, 6), dpi=high_dpi)
 cbar = plt.colorbar(plt.cm.ScalarMappable(cmap='turbo'), cax=ax, orientation='vertical')
 cbar.set_label('Intensity')
 plt.subplots_adjust(left=0, right=1, top=1, bottom=0)
-color_bar_vertical_path = os.path.join(path_no_file_name, 'color_bar_vertical.cvg')
+color_bar_vertical_path = os.path.join(path_no_file_name, 'color_bar_vertical.svg')
 plt.savefig(color_bar_vertical_path, dpi=high_dpi, bbox_inches='tight', pad_inches=0)
 plt.close(fig)
 
