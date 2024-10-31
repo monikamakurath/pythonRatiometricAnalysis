@@ -17,7 +17,45 @@ plt.rcParams['font.family'] = 'Arial'   # set the font for all images
 username = os.environ.get("USER") or getpass.getuser()
 
 if username == "makurathm":  # Office computer
-    file_path = '/Users/makurathm/Documents/pythonTestFiles/test.czi'
+    #file_path = '/Users/makurathm/Documents/pythonTestFiles/test.czi'
+    #file_path = '/Volumes/jlslab/Monika/data/ER-glucose/ER-iGlucoSnFR2/20240913-HepG2-ERiGlucoSnFR2-DJN-Tunicamycin-Thepsigargin-BrefeldinA-Zeiss880/well5,7 Tunicamycin glucose/well7-Zeiss980-tunica-glucose-adding-noGluGlutor/20240914-well7-iGlucoSnFr2-JF646-Line-01-Airyscan Processing-01-TNMglu-addingNoGluGlutor/20240914-well7-iGlucoSnFr2-JF646-Line-01-Airyscan Processing-01-TNMglu-addingNoGluGlutor.czi'
+    #file_path = '/Volumes/jlslab/Monika/data/ER-glucose/ER-iGlucoSnFR2/20240913-HepG2-ERiGlucoSnFR2-DJN-Tunicamycin-Thepsigargin-BrefeldinA-Zeiss880/well6,8 Tunicamycin glucose-free/20240914-well8-iGlucoSnFr2-JF646-Line-01-Airyscan Processing-02-TNMnoGlu-addingNoGluGlutor.czi'
+    #file_path = '/Volumes/jlslab/Monika/data/ER-glucose/ER-iGlucoSnFR2/20240909-HepG2-ERiGlucoSnFR2-DJN/10X - 36h later/2 glutor/20240618-iGlucoSnFr2-JF646-Line-03-Airyscan Processing-25-addingRegularDMEM-to-RegularDMEM/20240618-iGlucoSnFr2-JF646-Line-03-Airyscan Processing-25-addingRegularDMEM-to-RegularDMEM.czi'
+    #file_path = '/Volumes/jlslab/Monika/data/ER-glucose/ER-iGlucoSnFR2/20240909-HepG2-ERiGlucoSnFR2-DJN/10X - 36h later/2 glutor/20240618-iGlucoSnFr2-JF646-Line-04-Airyscan Processing-26-addingNoGluDMEM-to-no-treatment-regularDMEM/20240618-iGlucoSnFr2-JF646-Line-04-Airyscan Processing-26-addingNoGluDMEM-to-no-treatment-regularDMEM.czi'
+    #file_path = '/Volumes/jlslab/Monika/data/ER-glucose/ER-iGlucoSnFR2/20240909-HepG2-ERiGlucoSnFR2-DJN/10X - 36h later/2 glutor/20240618-iGlucoSnFr2-JF646-Line-02-Airyscan Processing-24-addingRegularDMEMwithGlutor/20240618-iGlucoSnFr2-JF646-Line-02-Airyscan Processing-24-addingRegularDMEMwithGlutor.czi'
+    #file_path = '/Volumes/jlslab/Monika/data/ER-glucose/ER-iGlucoSnFR2/20240909-HepG2-ERiGlucoSnFR2-DJN/10X - 36h later/2 glutor/20240911-iGlucoSnFr2-JF646-Line-09-Airyscan Processing-17-from-no-treatment-toNoGluGlutor/20240911-iGlucoSnFr2-JF646-Line-09-Airyscan Processing-17-from-no-treatment-toNoGluGlutor.czi'
+    #file_path = '/Volumes/jlslab/Monika/data/ER-glucose/ER-iGlucoSnFR2/20240909-HepG2-ERiGlucoSnFR2-DJN/10X - 36h later/2 glutor/20240911-iGlucoSnFr2-JF646-Line-16-Airyscan Processing-22-addingNoGluGlutor-to-regularDMEM-repeat-diffPowerSettings/20240911-iGlucoSnFr2-JF646-Line-16-Airyscan Processing-22-addingNoGluGlutor-to-regularDMEM-repeat-diffPowerSettings.czi'
+    #file_path = '/Volumes/jlslab/Monika/data/ER-glucose/ER-iGlucoSnFR2/20240909-HepG2-ERiGlucoSnFR2-DJN/10X - 36h later/2 glutor/20240911-iGlucoSnFr2-JF646-Line-08-Airyscan Processing-16-DNJnoGlu-addingNoGluGlutor/20240911-iGlucoSnFr2-JF646-Line-08-Airyscan Processing-16-DNJnoGlu-addingNoGluGlutor.czi'
+    #file_path = '/Volumes/jlslab/Monika/data/ER-glucose/ER-iGlucoSnFR2/20240909-HepG2-ERiGlucoSnFR2-DJN/10X - 36h later/1/20240618-iGlucoSnFr2-JF646-Line-01-Airyscan Processing-07-NoGluDJN/20240618-iGlucoSnFr2-JF646-Line-01-Airyscan Processing-07-NoGluDJN.czi'
+    #file_path = '/Volumes/jlslab/Monika/data/ER-glucose/ER-iGlucoSnFR2/20240913-HepG2-ERiGlucoSnFR2-DJN-Tunicamycin-Thepsigargin-BrefeldinA-Zeiss880/well6,8 Tunicamycin glucose-free/20240914-well8-iGlucoSnFr2-JF646-Line-01-Airyscan Processing-02-TNMnoGlu-addingNoGluGlutor/20240914-well8-iGlucoSnFr2-JF646-Line-01-Airyscan Processing-02-TNMnoGlu-addingNoGluGlutor.czi'
+    #file_path = '/Volumes/jlslab/Monika/data/ER-glucose/ER-iGlucoSnFR2/20240913-HepG2-ERiGlucoSnFR2-DJN-Tunicamycin-Thepsigargin-BrefeldinA-Zeiss880/well6,8 Tunicamycin glucose-free/20240618-iGlucoSnFr2-JF646-Line-02-Airyscan Processing-02-TNMnoGlu-addingNoGluGlutor/20240618-iGlucoSnFr2-JF646-Line-02-Airyscan Processing-02-TNMnoGlu-addingNoGluGlutor.czi'
+    #file_path = '/Volumes/jlslab/Monika/data/ER-glucose/ER-iGlucoSnFR2/20240904-hypothalamic-slice-ERiGlucoSnFR2/2.5X/20240624-iGlucoSnFr2-JF646-Line-05-Airyscan Processing-03-Channel Alignment-05/20240624-iGlucoSnFr2-JF646-Line-05-Airyscan Processing-03-Channel Alignment-05.czi'
+    #file_path = '/Volumes/jlslab/Monika/data/ER-glucose/ER-iGlucoSnFR2/20240904-hypothalamic-slice-ERiGlucoSnFR2/2.5X/20240624-iGlucoSnFr2-JF646-Line-11-Airyscan Processing-10/20240624-iGlucoSnFr2-JF646-Line-11-Airyscan Processing-10.czi'
+  #  file_path = '/Volumes/jlslab/Monika/data/ER-glucose/ER-iGlucoSnFR2/20240904-hypothalamic-slice-ERiGlucoSnFR2/10X/20240624-iGlucoSnFr2-JF646-Line-30-Airyscan Processing-28-time-series-after-NoGluAndGlutor/20240624-iGlucoSnFr2-JF646-Line-30-Airyscan Processing-28-time-series-after-NoGluAndGlutor.czi'
+  #  file_path = '/Volumes/jlslab/Monika/data/ER-glucose/ER-iGlucoSnFR2/20240904-hypothalamic-slice-ERiGlucoSnFR2/10X/20240624-iGlucoSnFr2-JF646-Line-03-Airyscan Processing-01/20240624-iGlucoSnFr2-JF646-Line-03-Airyscan Processing-01.czi'
+   # file_path = '/Volumes/jlslab/Monika/data/ER-glucose/ER-iGlucoSnFR2/20240904-hypothalamic-slice-ERiGlucoSnFR2/10X/20240624-iGlucoSnFr2-JF646-Line-01-Airyscan Processing-29-inNoGluGlutor/20240624-iGlucoSnFr2-JF646-Line-01-Airyscan Processing-29-inNoGluGlutor.czi'
+    #file_path = '/Volumes/jlslab/Monika/data/ER-glucose/ER-iGlucoSnFR2/20240904-hypothalamic-slice-ERiGlucoSnFR2/10X/20240624-iGlucoSnFr2-JF646-Line-15-Airyscan Processing-15/20240624-iGlucoSnFr2-JF646-Line-15-Airyscan Processing-15.czi'
+#    file_path = '/Volumes/jlslab/Monika/data/ER-glucose/ER-iGlucoSnFR2/20240904-hypothalamic-slice-ERiGlucoSnFR2/10X/20240624-iGlucoSnFr2-JF646-Line-15-Airyscan Processing-15/20240624-iGlucoSnFr2-JF646-Line-15-Airyscan Processing-15.czi'
+ #   file_path = '/Volumes/jlslab/Monika/data/ER-glucose/ER-iGlucoSnFR2/20240904-hypothalamic-slice-ERiGlucoSnFR2/10X/20240624-iGlucoSnFr2-JF646-Line-16-Airyscan Processing-16/20240624-iGlucoSnFr2-JF646-Line-16-Airyscan Processing-16.czi'
+   # file_path = '/Volumes/jlslab/Monika/data/ER-glucose/ER-iGlucoSnFR2/20240904-hypothalamic-slice-ERiGlucoSnFR2/10X/20240624-iGlucoSnFr2-JF646-Line-02-Airyscan Processing-30-inNoGluGlutor/20240624-iGlucoSnFr2-JF646-Line-02-Airyscan Processing-30-inNoGluGlutor.czi'
+#    file_path = '/Volumes/jlslab/Monika/data/ER-glucose/ER-iGlucoSnFR2/20240904-hypothalamic-slice-ERiGlucoSnFR2/20X/20240624-iGlucoSnFr2-JF646-Line-27-Airyscan Processing-25-control/20240624-iGlucoSnFr2-JF646-Line-27-Airyscan Processing-25-control.czi'
+ #   file_path = '/Volumes/jlslab/Monika/data/ER-glucose/ER-iGlucoSnFR2/20240904-hypothalamic-slice-ERiGlucoSnFR2/20X/20240624-iGlucoSnFr2-JF646-Line-29-Airyscan Processing-27-addingNoGluGlutor/20240624-iGlucoSnFr2-JF646-Line-29-Airyscan Processing-27-addingNoGluGlutor.czi'
+ #   file_path = '/Volumes/jlslab/Monika/data/ER-glucose/ER-iGlucoSnFR2/20240904-hypothalamic-slice-ERiGlucoSnFR2/40x/20240624-iGlucoSnFr2-JF646-Line-22-Airyscan Processing-22/20240624-iGlucoSnFr2-JF646-Line-22-Airyscan Processing-22.czi'
+   # file_path = '/Volumes/jlslab/Monika/data/ER-glucose/ER-iGlucoSnFR2/20240904-hypothalamic-slice-ERiGlucoSnFR2/40x/20240624-iGlucoSnFr2-JF646-Line-23-Airyscan Processing-23/20240624-iGlucoSnFr2-JF646-Line-23-Airyscan Processing-23.czi'
+#    file_path = '/Volumes/jlslab/Monika/data/ER-glucose/ER-iGlucoSnFR2/20240904-hypothalamic-slice-ERiGlucoSnFR2/40x/20240624-iGlucoSnFr2-JF646-Line-25-Airyscan Processing-24/20240624-iGlucoSnFr2-JF646-Line-25-Airyscan Processing-24.czi'
+#    file_path = '/Volumes/jlslab/Monika/data/ER-glucose/ER-iGlucoSnFR2/20240904-hypothalamic-slice-ERiGlucoSnFR2/63X/20240624-iGlucoSnFr2-JF646-Line-17-Airyscan Processing-17/20240624-iGlucoSnFr2-JF646-Line-17-Airyscan Processing-17.czi'
+#    file_path = '/Volumes/jlslab/Monika/data/ER-glucose/ER-iGlucoSnFR2/20240904-hypothalamic-slice-ERiGlucoSnFR2/63X/20240624-iGlucoSnFr2-JF646-Line-18-Airyscan Processing-18/20240624-iGlucoSnFr2-JF646-Line-18-Airyscan Processing-18.czi'
+#    file_path = '/Volumes/jlslab/Monika/data/ER-glucose/ER-iGlucoSnFR2/20240822-hypothalamic-primary-cultures-ERiGlucoSnFR2/1 no treatment in DMEM/dish1/20240624-iGlucoSnFr2-JF646-Line-03-Airyscan Processing-01-Channel Alignment-02/20240624-iGlucoSnFr2-JF646-Line-03-Airyscan Processing-01-Channel Alignment-02.czi'
+#    file_path = '/Volumes/jlslab/Monika/data/ER-glucose/ER-iGlucoSnFR2/20240820-hypothalamic-primary-cultures-ERiGlucoSnFR2/tunicamycin/20240820-iGlucoSnFr2-JF646-Line-07-Airyscan Processing-09/20240820-iGlucoSnFr2-JF646-Line-07-Airyscan Processing-09.czi'
+ #   file_path = '/Volumes/jlslab/Monika/data/ER-glucose/ER-iGlucoSnFR2/20240820-hypothalamic-primary-cultures-ERiGlucoSnFR2/tunicamycin/20240820-iGlucoSnFr2-JF646-Line-04-Airyscan Processing-05/20240820-iGlucoSnFr2-JF646-Line-04-Airyscan Processing-05.czi'
+  #  file_path = '/Volumes/jlslab/Monika/data/ER-glucose/ER-iGlucoSnFR2/20240820-hypothalamic-primary-cultures-ERiGlucoSnFR2/tunicamycin/20240820-iGlucoSnFr2-JF646-Line-03-Airyscan Processing-03/20240820-iGlucoSnFr2-JF646-Line-03-Airyscan Processing-03.czi'
+#    file_path = '/Volumes/jlslab/Monika/data/ER-glucose/ER-iGlucoSnFR2/20240820-hypothalamic-primary-cultures-ERiGlucoSnFR2/tunicamycin/20240820-iGlucoSnFr2-JF646-Line-03-Airyscan Processing-03/20240820-iGlucoSnFr2-JF646-Line-03-Airyscan Processing-03.czi'
+#    file_path = '/Volumes/jlslab/Monika/data/ER-glucose/ER-iGlucoSnFR2/20240820-hypothalamic-primary-cultures-ERiGlucoSnFR2/tunicamycin/20240624-iGlucoSnFr2-JF646-Line-14-Airyscan Processing-07/20240624-iGlucoSnFr2-JF646-Line-14-Airyscan Processing-07.czi'
+  #  file_path = '/Volumes/jlslab/Monika/data/ER-glucose/ER-iGlucoSnFR2/20240624-25-hypothalamic-primary-cultures-ERiGlucoSnFR2/well1-GLUTs/20240624-iGlucoSnFr2-JF646-Line-11-Airyscan Processing-03-addingDrugsGLUTs-zoom-p1/20240624-iGlucoSnFr2-JF646-Line-11-Airyscan Processing-03-addingDrugsGLUTs-zoom-p1.czi'
+ #   file_path = '/Volumes/jlslab/Monika/data/ER-glucose/ER-iGlucoSnFR2/20240624-25-hypothalamic-primary-cultures-ERiGlucoSnFR2/well1-GLUTs/20240624-iGlucoSnFr2-JF646-Line-16-Airyscan Processing-05-addingDrugs-one-cell-0ms/20240624-iGlucoSnFr2-JF646-Line-16-Airyscan Processing-05-addingDrugs-one-cell-0ms.czi'
+ #   file_path = '/Volumes/jlslab/Monika/data/ER-glucose/ER-iGlucoSnFR2/20240509-ERiGlucoSnFR-JF646-brain-cells-dish2B-LineScan/63X/from G to noGdrugs/20240509-ERiGlucoSnFR2-JF646-Line-06-Airyscan Processing-43-time-series-100-1s/20240509-ERiGlucoSnFR2-JF646-Line-06-Airyscan Processing-43-time-series-100-1s.czi'
+    file_path = '/Volumes/jlslab/Monika/data/ER-glucose/ER-iGlucoSnFR2/20240618-HepG2-ER.iGlucoSnFR2-JF646/20240618-iGlucoSnFr2-JF646-Line-02-Airyscan Processing-03/20240618-iGlucoSnFr2-JF646-Line-02-Airyscan Processing-03.czi'
+
 elif username == "monikamakurath":  # Laptop
     file_path = '/Users/monikamakurath/Documents/pythonTestFiles/test.czi'
 else:
@@ -69,7 +107,7 @@ ratiometric_stack = compute_ratiometric_stack(masked_channel_1_stack, masked_cha
 # %% Manually input the frame rate and the scale bar
 num_frames = len(ratiometric_stack)     # Total frames
 # Frame rate in seconds
-framerate_seconds = 59.86   # Frame rate in seconds
+framerate_seconds = 9.65   # Frame rate in seconds
 # Convert frame rate to minutes
 framerate_minutes = framerate_seconds / 60.0
 
@@ -80,15 +118,15 @@ time_array = np.arange(num_frames) * framerate_minutes
 text_size = plt.gcf().get_size_inches()[1] / 30
 
 # %% Manually input pixel size for the scale bar and scale bar location parameters
-pixel_width = 0.1322914     # pixel resolution in microns
-pixel_height = 0.1322914    # pixel resolution in microns
-scale_bar_length_microns = 100      # desired scale bar size in microns
+pixel_width = 0.0425232     # pixel resolution in microns
+pixel_height = 0.0425232    # pixel resolution in microns
+scale_bar_length_microns = 1      # desired scale bar size in microns
 scale_bar_length_pixels = scale_bar_length_microns / pixel_width     # Calculate scale bar size in pixels
 
 # Scale bar location parameters
-scale_bar_height_pixels = 25  # height of scale bar
-scale_bar_vertical_padding = 100  # padding from bottom
-scale_bar_horizontal_padding = 100  # padding from right
+scale_bar_height_pixels = 2  # height of scale bar # 25 for cells
+scale_bar_vertical_padding = 2  # padding from bottom # 100 for cells
+scale_bar_horizontal_padding = 2  # padding from right # 100 for cells
 
 # %% Clip top and bottom pixel values
 clipped_stack = np.copy(ratiometric_stack)      # Initialize a new stack to store the clipped frames
@@ -158,7 +196,7 @@ high_dpi = 300  # Increase for higher resolution
 
 # Create the figure and apply settings
 plt.figure(figsize=[8, 8], dpi=high_dpi)
-plt.imshow(clipped_stack[-1], cmap='turbo', vmin=0, vmax=3)
+plt.imshow(clipped_stack[-1], cmap='turbo', vmin=0, vmax=3)  # 3 for cells
 plt.title('Last Frame')
 plt.axis('off')  # Hide axes
 plt.colorbar()
