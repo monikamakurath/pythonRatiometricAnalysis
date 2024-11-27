@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8ee63934-e151-4ded-a6d6-04f742e880ba" name="Changes" comment="removed all unnecessary scripts">
+    <list default="true" id="8ee63934-e151-4ded-a6d6-04f742e880ba" name="Changes" comment="making sure this version is saved,  renamed steps in the master file">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/masterRatiometricAnalysis.py" beforeDir="false" afterPath="$PROJECT_DIR$/masterRatiometricAnalysis.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +20,7 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -106,7 +106,7 @@
       <workItem from="1732417658945" duration="79000" />
       <workItem from="1732417823062" duration="169000" />
       <workItem from="1732418248394" duration="44000" />
-      <workItem from="1732418759309" duration="6560000" />
+      <workItem from="1732418759309" duration="20395000" />
     </task>
     <task id="LOCAL-00001" summary="adapted 0-3 to loop through the entire stack. got stuck on step 4 because of all kinds of mistakes">
       <option name="closed" value="true" />
@@ -148,7 +148,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730401869800</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="making sure this version is saved,  renamed steps in the master file">
+      <option name="closed" value="true" />
+      <created>1732491147790</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1732491147790</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -171,7 +179,8 @@
     <MESSAGE value="polished the plots, saved color bars" />
     <MESSAGE value="created a master plot that runs all the scripts sequentially; only need to input parameters such as frame_rate, scale bars, length of the scale bar and resolution for saving the file" />
     <MESSAGE value="removed all unnecessary scripts" />
-    <option name="LAST_COMMIT_MESSAGE" value="removed all unnecessary scripts" />
+    <MESSAGE value="making sure this version is saved,  renamed steps in the master file" />
+    <option name="LAST_COMMIT_MESSAGE" value="making sure this version is saved,  renamed steps in the master file" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -199,7 +208,7 @@
     <SUITE FILE_PATH="coverage/pythonRatiometricAnalysis$4_ratioTotalIntensityPlots.coverage" NAME="4-ratioTotalIntensityPlots Coverage Results" MODIFIED="1730111004262" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/pythonRatiometricAnalysis$3_segmentation.coverage" NAME="3-segmentation Coverage Results" MODIFIED="1730110991949" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/pythonRatiometricAnalysis$displayRatiometricStackFrames.coverage" NAME="displayRatiometricStackFrames Coverage Results" MODIFIED="1729900482960" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/pythonRatiometricAnalysis$masterRatiometricAnalysis.coverage" NAME="masterRatiometricAnalysis Coverage Results" MODIFIED="1732489723171" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/pythonRatiometricAnalysis$masterRatiometricAnalysis.coverage" NAME="masterRatiometricAnalysis Coverage Results" MODIFIED="1732722731521" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/pythonRatiometricAnalysis$5_ratioTotalIntensityImages.coverage" NAME="5-ratioTotalIntensityImages Coverage Results" MODIFIED="1729902429672" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/pythonRatiometricAnalysis$5_imagesTurboStack.coverage" NAME="5-imagesTurboStack Coverage Results" MODIFIED="1729914309861" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/pythonRatiometricAnalysis$0_loadFile2.coverage" NAME="0-loadFile2 Coverage Results" MODIFIED="1730136507490" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />

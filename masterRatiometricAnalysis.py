@@ -10,20 +10,20 @@ def main():
     file_path, output_dir = firstStepLoadFile.firstStepLoadFile()
 
     if file_path and output_dir:
-        print("Second: Registering image stack using the loaded file...")
+        print("1: Registering image stack using the loaded file...")
         secondStepRegistration.secondStepRegistration(file_path, output_dir)
 
-        print("Third: Summing intensities of registered image stack...")
+        print("2: Summing intensities of registered image stack...")
         thirdStepSumChannels.thirdStepSumChannels(output_dir)
 
-        print("Fourth: Creating segmentation masks...")
+        print("3: Creating segmentation masks...")
         fourthStepSegmentation.fourthStepSegmentation(output_dir)
 
-        print("Fifth: Performing ratiometric analysis...")
+        print("4: Performing ratiometric analysis...")
         frame_rate = 59.86  # in seconds. Set the frame rate manually here or prompt the user if needed
         fifthStepRatioAnalysisPlots.fifthStepRatioAnalysisPlots(output_dir, frame_rate)
 
-        print("Sisth: Generating ratiometric images with annotations...")
+        print("5: Generating ratiometric images with annotations...")
         pixel_width = 0.0425270
         scale_bar_length_microns = 10
         high_dpi = 300
