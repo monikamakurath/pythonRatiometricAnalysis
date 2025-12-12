@@ -5,7 +5,7 @@ import tifffile as tiff
 import os
 import matplotlib.pyplot as plt
 
-def thirdStepSumChannels(output_dir):
+def sumChannels(output_dir):
     # Define paths for the registered stack and the output summed stack
     stack_path = os.path.join(output_dir, 'registered_stack_16bit.tiff')
     output_file_summed_stack = os.path.join(output_dir, 'summed_stack_16bit.tiff')

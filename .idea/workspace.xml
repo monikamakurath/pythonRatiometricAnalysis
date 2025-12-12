@@ -4,8 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8ee63934-e151-4ded-a6d6-04f742e880ba" name="Changes" comment="making sure this version is saved,  renamed steps in the master file">
+    <list default="true" id="8ee63934-e151-4ded-a6d6-04f742e880ba" name="Changes" comment="small changes to the master file">
+      <change afterPath="$PROJECT_DIR$/applyMask.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/loadFile.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ratioAnalysisImageStack.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ratioAnalysisPlots.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ratioImage.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subcellularApplyMask.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subcellularRatioAnalysisImageStack.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subcellularRatioAnalysisPlots.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sumChannels.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/timeSeriesMaster.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/pythonRatiometricAnalysis.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/pythonRatiometricAnalysis.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fifthStepRatioAnalysisPlots.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/firstStepLoadFile.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fourthStepSegmentation.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/masterRatiometricAnalysis.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/secondStepRegistration.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sixthStepRatioAnalysisImageStack.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/thirdStepSumChannels.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,39 +66,89 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;Python.0-loadFile.executor&quot;: &quot;Run&quot;,
-    &quot;Python.0-loadFile2.executor&quot;: &quot;Run&quot;,
-    &quot;Python.1-registration.executor&quot;: &quot;Run&quot;,
-    &quot;Python.2-sumChannels.executor&quot;: &quot;Run&quot;,
-    &quot;Python.3-getMask.executor&quot;: &quot;Run&quot;,
-    &quot;Python.3-segmentation.executor&quot;: &quot;Run&quot;,
-    &quot;Python.4-ratioTotalIntensity.executor&quot;: &quot;Run&quot;,
-    &quot;Python.4-ratioTotalIntensityImages.executor&quot;: &quot;Run&quot;,
-    &quot;Python.4-ratioTotalIntensityPlots.executor&quot;: &quot;Run&quot;,
-    &quot;Python.4-ratiometricAnalysisNormTotIntensity.executor&quot;: &quot;Run&quot;,
-    &quot;Python.4-testRatio.executor&quot;: &quot;Run&quot;,
-    &quot;Python.5-imagesTurbo.executor&quot;: &quot;Run&quot;,
-    &quot;Python.5-imagesTurboStack.executor&quot;: &quot;Run&quot;,
-    &quot;Python.5-imagesTurboStack2.executor&quot;: &quot;Run&quot;,
-    &quot;Python.5-ratioImageStack.executor&quot;: &quot;Run&quot;,
-    &quot;Python.5-ratioTotalIntensityImages.executor&quot;: &quot;Debug&quot;,
-    &quot;Python.displayRatiometricStackFrames.executor&quot;: &quot;Run&quot;,
-    &quot;Python.masterRatiometricAnalysis.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Python.0-loadFile.executor": "Run",
+    "Python.0-loadFile2.executor": "Run",
+    "Python.1-registration.executor": "Run",
+    "Python.2-sumChannels.executor": "Run",
+    "Python.3-getMask.executor": "Run",
+    "Python.3-segmentation.executor": "Run",
+    "Python.4-ratioTotalIntensity.executor": "Run",
+    "Python.4-ratioTotalIntensityImages.executor": "Run",
+    "Python.4-ratioTotalIntensityPlots.executor": "Run",
+    "Python.4-ratiometricAnalysisNormTotIntensity.executor": "Run",
+    "Python.4-testRatio.executor": "Run",
+    "Python.5-imagesTurbo.executor": "Run",
+    "Python.5-imagesTurboStack.executor": "Run",
+    "Python.5-imagesTurboStack2.executor": "Run",
+    "Python.5-ratioImageStack.executor": "Run",
+    "Python.5-ratioTotalIntensityImages.executor": "Debug",
+    "Python.alignTraces.executor": "Run",
+    "Python.displayRatiometricStackFrames.executor": "Run",
+    "Python.loadRatioIntExcelFileFolder.executor": "Run",
+    "Python.masterRatiometricAnalysis.executor": "Run",
+    "Python.masterRatiometricAnalysisWholeFrame.executor": "Run",
+    "Python.plot_mean_intensity.executor": "Run",
+    "Python.ratioAnalysisImageStack.executor": "Run",
+    "Python.ratioImage.executor": "Run",
+    "Python.secondStepSegmentCells.executor": "Run",
+    "Python.segmentCells.executor": "Run",
+    "Python.sixthStepRatioAnalysisImageStack.executor": "Run",
+    "Python.test.executor": "Run",
+    "Python.thirdStepSumChannels.executor": "Run",
+    "Python.timeSeriesMaster.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "ToolWindowPlots.ShowToolbar": "false",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "/Users/makurathm/Documents/pythonRatiometricAnalysisv3-whole-frame",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "editor.preferences.tabs",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/../pythonTimeSeries" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="ratioImage" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="pythonRatiometricAnalysis" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ratioImage.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.ratioImage" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -106,7 +176,36 @@
       <workItem from="1732417658945" duration="79000" />
       <workItem from="1732417823062" duration="169000" />
       <workItem from="1732418248394" duration="44000" />
-      <workItem from="1732418759309" duration="20395000" />
+      <workItem from="1732418759309" duration="42210000" />
+      <workItem from="1738010043408" duration="5475000" />
+      <workItem from="1738350525823" duration="41909000" />
+      <workItem from="1738698768573" duration="44876000" />
+      <workItem from="1738874994246" duration="749000" />
+      <workItem from="1738875758591" duration="4487000" />
+      <workItem from="1738944438173" duration="30692000" />
+      <workItem from="1739282588631" duration="67166000" />
+      <workItem from="1739906639589" duration="103000" />
+      <workItem from="1739906749978" duration="30000" />
+      <workItem from="1739906787086" duration="34000" />
+      <workItem from="1739906843104" duration="173000" />
+      <workItem from="1739907027182" duration="580000" />
+      <workItem from="1739907615657" duration="863000" />
+      <workItem from="1739908487860" duration="67148000" />
+      <workItem from="1741707107326" duration="611000" />
+      <workItem from="1742475715814" duration="593000" />
+      <workItem from="1743178220051" duration="19770000" />
+      <workItem from="1747681843155" duration="60552000" />
+      <workItem from="1748354022119" duration="766000" />
+      <workItem from="1754493158722" duration="3358000" />
+      <workItem from="1754877441192" duration="60372000" />
+      <workItem from="1755108676916" duration="9900000" />
+      <workItem from="1755176318494" duration="9671000" />
+      <workItem from="1755716546504" duration="5000" />
+      <workItem from="1755716603198" duration="42000" />
+      <workItem from="1755716713831" duration="793000" />
+      <workItem from="1760625802618" duration="844000" />
+      <workItem from="1761140086209" duration="381000" />
+      <workItem from="1765477911599" duration="4202000" />
     </task>
     <task id="LOCAL-00001" summary="adapted 0-3 to loop through the entire stack. got stuck on step 4 because of all kinds of mistakes">
       <option name="closed" value="true" />
@@ -156,7 +255,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732491147790</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="small changes to the master file">
+      <option name="closed" value="true" />
+      <created>1732722889423</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1732722889423</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -180,7 +287,8 @@
     <MESSAGE value="created a master plot that runs all the scripts sequentially; only need to input parameters such as frame_rate, scale bars, length of the scale bar and resolution for saving the file" />
     <MESSAGE value="removed all unnecessary scripts" />
     <MESSAGE value="making sure this version is saved,  renamed steps in the master file" />
-    <option name="LAST_COMMIT_MESSAGE" value="making sure this version is saved,  renamed steps in the master file" />
+    <MESSAGE value="small changes to the master file" />
+    <option name="LAST_COMMIT_MESSAGE" value="small changes to the master file" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -194,23 +302,37 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/pythonRatiometricAnalysisv3FijiSegmentation$alignTraces.coverage" NAME="alignTraces Coverage Results" MODIFIED="1755135817188" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../pythonTimeSeries/pythonProject" />
+    <SUITE FILE_PATH="coverage/pythonRatiometricAnalysis$0_loadFile.coverage" NAME="0-loadFile Coverage Results" MODIFIED="1730110966042" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/pythonRatiometricAnalysis$3_getMask.coverage" NAME="3-getMask Coverage Results" MODIFIED="1729714912675" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/pythonRatiometricAnalysisv3FijiSegmentation$masterRatiometricAnalysis.coverage" NAME="masterRatiometricAnalysis Coverage Results" MODIFIED="1755136568968" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/pythonRatiometricAnalysis$4_ratiometricAnalysisNormTotIntensity.coverage" NAME="4-ratiometricAnalysisNormTotIntensity Coverage Results" MODIFIED="1729792276394" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/pythonRatiometricAnalysis$4_ratioTotalIntensity.coverage" NAME="4-ratioTotalIntensity Coverage Results" MODIFIED="1729791819217" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/pythonRatiometricAnalysisv3FijiSegmentation$timeSeriesMaster.coverage" NAME="timeSeriesMaster Coverage Results" MODIFIED="1755135576484" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../pythonTimeSeries/pythonProject" />
+    <SUITE FILE_PATH="coverage/pythonRatiometricAnalysisv3_whole_frame$masterRatiometricAnalysisWholeFrame.coverage" NAME="masterRatiometricAnalysisWholeFrame Coverage Results" MODIFIED="1760626035210" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/pythonRatiometricAnalysis$displayRatiometricStackFrames.coverage" NAME="displayRatiometricStackFrames Coverage Results" MODIFIED="1729900482960" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/pythonRatiometricAnalysisv3FijiSegmentation$loadRatioIntExcelFileFolder.coverage" NAME="loadRatioIntExcelFileFolder Coverage Results" MODIFIED="1747828042443" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../pythonTimeSeries/pythonProject" />
+    <SUITE FILE_PATH="coverage/pythonRatiometricAnalysisv3FijiSegmentation$ratioAnalysisImageStack.coverage" NAME="ratioAnalysisImageStack Coverage Results" MODIFIED="1739914026413" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/pythonRatiometricAnalysisv2$sixthStepRatioAnalysisImageStack.coverage" NAME="sixthStepRatioAnalysisImageStack Coverage Results" MODIFIED="1738614310211" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/pythonRatiometricAnalysis$5_ratioTotalIntensityImages.coverage" NAME="5-ratioTotalIntensityImages Coverage Results" MODIFIED="1729902429672" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/pythonRatiometricAnalysis$5_imagesTurboStack.coverage" NAME="5-imagesTurboStack Coverage Results" MODIFIED="1729914309861" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/pythonRatiometricAnalysisv2$segmentCells.coverage" NAME="segmentCells Coverage Results" MODIFIED="1738875877574" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/pythonRatiometricAnalysis$2_sumChannels.coverage" NAME="2-sumChannels Coverage Results" MODIFIED="1730110983524" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/pythonRatiometricAnalysis$1_registration.coverage" NAME="1-registration Coverage Results" MODIFIED="1730110974564" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/pythonRatiometricAnalysis$5_imagesTurbo.coverage" NAME="5-imagesTurbo Coverage Results" MODIFIED="1729911824972" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/pythonRatiometricAnalysis$0_loadFile.coverage" NAME="0-loadFile Coverage Results" MODIFIED="1730110966042" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/pythonRatiometricAnalysisv2$thirdStepSumChannels.coverage" NAME="thirdStepSumChannels Coverage Results" MODIFIED="1739215081945" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/pythonRatiometricAnalysis$5_imagesTurboStack2.coverage" NAME="5-imagesTurboStack2 Coverage Results" MODIFIED="1729916632842" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/pythonRatiometricAnalysis$3_getMask.coverage" NAME="3-getMask Coverage Results" MODIFIED="1729714912675" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/pythonRatiometricAnalysis$4_ratioTotalIntensityImages.coverage" NAME="4-ratioTotalIntensityImages Coverage Results" MODIFIED="1729868310558" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/pythonRatiometricAnalysis$5_ratioImageStack.coverage" NAME="5-ratioImageStack Coverage Results" MODIFIED="1730111116699" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/pythonRatiometricAnalysisv2$test.coverage" NAME="test Coverage Results" MODIFIED="1738704640478" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/pythonRatiometricAnalysis$4_testRatio.coverage" NAME="4-testRatio Coverage Results" MODIFIED="1729781874502" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/pythonRatiometricAnalysis$4_ratioTotalIntensity.coverage" NAME="4-ratioTotalIntensity Coverage Results" MODIFIED="1729791819217" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/pythonRatiometricAnalysis$4_ratiometricAnalysisNormTotIntensity.coverage" NAME="4-ratiometricAnalysisNormTotIntensity Coverage Results" MODIFIED="1729792276394" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/pythonRatiometricAnalysis$4_ratioTotalIntensityPlots.coverage" NAME="4-ratioTotalIntensityPlots Coverage Results" MODIFIED="1730111004262" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/pythonRatiometricAnalysisv3_whole_frame$ratioImage.coverage" NAME="ratioImage Coverage Results" MODIFIED="1765481387794" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/pythonRatiometricAnalysis$3_segmentation.coverage" NAME="3-segmentation Coverage Results" MODIFIED="1730110991949" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/pythonRatiometricAnalysis$displayRatiometricStackFrames.coverage" NAME="displayRatiometricStackFrames Coverage Results" MODIFIED="1729900482960" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/pythonRatiometricAnalysis$masterRatiometricAnalysis.coverage" NAME="masterRatiometricAnalysis Coverage Results" MODIFIED="1732722731521" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/pythonRatiometricAnalysis$5_ratioTotalIntensityImages.coverage" NAME="5-ratioTotalIntensityImages Coverage Results" MODIFIED="1729902429672" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/pythonRatiometricAnalysis$5_imagesTurboStack.coverage" NAME="5-imagesTurboStack Coverage Results" MODIFIED="1729914309861" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/pythonRatiometricAnalysis$masterRatiometricAnalysis.coverage" NAME="masterRatiometricAnalysis Coverage Results" MODIFIED="1738082111377" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/pythonRatiometricAnalysisv2$secondStepSegmentCells.coverage" NAME="secondStepSegmentCells Coverage Results" MODIFIED="1738703201608" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/pythonRatiometricAnalysisv3FijiSegmentation$plot_mean_intensity.coverage" NAME="plot_mean_intensity Coverage Results" MODIFIED="1755216810068" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../pythonTimeSeries/pythonProject" />
     <SUITE FILE_PATH="coverage/pythonRatiometricAnalysis$0_loadFile2.coverage" NAME="0-loadFile2 Coverage Results" MODIFIED="1730136507490" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/pythonRatiometricAnalysisv2$masterRatiometricAnalysis.coverage" NAME="masterRatiometricAnalysis Coverage Results" MODIFIED="1739221727102" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

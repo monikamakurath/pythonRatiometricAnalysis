@@ -7,11 +7,12 @@ import tifffile as tiff
 import os
 import math
 from matplotlib import cm
+import cmocean
 import getpass
 
 plt.rcParams['font.family'] = 'Arial'  # Set font for all images
 
-def sixthStepRatioAnalysisImageStack(output_dir, frame_rate, pixel_width, scale_bar_length_microns, high_dpi):
+def ratioAnalysisImageStack(output_dir, frame_rate, pixel_width, scale_bar_length_microns, high_dpi):
     # Paths for the registered stack, mask, and output files
     stack_path = os.path.join(output_dir, 'registered_stack_16bit.tiff')
     mask_path = os.path.join(output_dir, 'segmentation_masks_stack.tiff')
@@ -27,7 +28,16 @@ def sixthStepRatioAnalysisImageStack(output_dir, frame_rate, pixel_width, scale_
     # Separate channels and apply mask
     green_stack = image_stack[:, 0, :, :] * mask_stack  # Green channel
     red_stack = image_stack[:, 1, :, :] * mask_stack    # Red channel
+
+    # Normalize to scale by first-frame intensity, to have time-normalized ratio
+    green_stack = green_stack/np.sum(green_stack[0] + 1e-10)
+    red_stack = red_stack / np.sum(red_stack[0] + 1e-10)
+
+    # Ratio
     ratiometric_stack = compute_ratiometric_stack(green_stack, red_stack)
+
+    # Replace zeros with NaN's so that the background is treated differently than the signal when the color bar is applied
+    ratiometric_stack[ratiometric_stack == 0] = np.nan
 
     # Compute time array in minutes
     num_frames = len(ratiometric_stack)
@@ -56,14 +66,16 @@ def format_frames(ratiometric_stack, time_array, scale_bar_length_pixels, high_d
 
     for i, frame in enumerate(ratiometric_stack):
         fig, ax = plt.subplots(figsize=(8, 8), dpi=high_dpi)
-        ax.imshow(np.clip(frame, 0, 3), cmap='turbo')
+        #ax.imshow(np.clip(frame, 0, 3), cmap='coolwarm')
+        #ax.imshow(np.clip(frame, 0, 2), cmap='coolwarm') # "RdGy" "coolwarm" "binary" "turbo"
+        ax.imshow(np.clip(frame, 0.2, 1.7), cmap=cmocean.cm.matter) # deep matter
         ax.axis('off')
 
         # Add time text
-        ax.text(0.02, 0.95, f'{math.ceil(time_array[i])} min', transform=ax.transAxes, fontsize=18, color='white', verticalalignment='top')
+        ax.text(0.02, 0.95, f'{math.ceil(time_array[i])} min', transform=ax.transAxes, fontsize=18, color='black', verticalalignment='top')
 
         # Add scale bar
-        scale_bar = patches.Rectangle((frame.shape[1] - scale_bar_length_pixels - 10, frame.shape[0] - 10), scale_bar_length_pixels, 2, edgecolor='white', facecolor='white')
+        scale_bar = patches.Rectangle((frame.shape[1] - scale_bar_length_pixels - 10, frame.shape[0] - 10), scale_bar_length_pixels, 2, edgecolor='black', facecolor='black')
         ax.add_patch(scale_bar)
 
         plt.subplots_adjust(left=0, right=1, top=1, bottom=0)
@@ -77,14 +89,14 @@ def format_frames(ratiometric_stack, time_array, scale_bar_length_pixels, high_d
 def save_color_bars(horizontal_path, vertical_path, high_dpi):
     # Horizontal color bar
     fig, ax = plt.subplots(figsize=(6, 1), dpi=high_dpi)
-    plt.colorbar(cm.ScalarMappable(cmap='turbo'), cax=ax, orientation='horizontal')
+    plt.colorbar(cm.ScalarMappable(cmap=cmocean.cm.matter), cax=ax, orientation='horizontal')
     plt.subplots_adjust(left=0, right=1, top=1, bottom=0)
     plt.savefig(horizontal_path, dpi=high_dpi, bbox_inches='tight', pad_inches=0)
     plt.close(fig)
 
     # Vertical color bar
     fig, ax = plt.subplots(figsize=(1, 6), dpi=high_dpi)
-    plt.colorbar(cm.ScalarMappable(cmap='turbo'), cax=ax, orientation='vertical')
+    plt.colorbar(cm.ScalarMappable(cmap=cmocean.cm.matter), cax=ax, orientation='vertical')
     plt.subplots_adjust(left=0, right=1, top=1, bottom=0)
     plt.savefig(vertical_path, dpi=high_dpi, bbox_inches='tight', pad_inches=0)
     plt.close(fig)
